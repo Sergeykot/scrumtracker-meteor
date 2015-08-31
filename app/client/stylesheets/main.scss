@@ -1,0 +1,86 @@
+/*****************************************************************************/
+/* main: Style */
+/*****************************************************************************/
+.navbar{
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  background-color: #024e68;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+
+#work-panel{
+  position: absolute;
+  bottom: 0;
+  top: 50px;
+  left: 0;
+  background-color: #06799f;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 20px;
+  }
+
+  .list-wrapper{
+    width: 270px;
+    margin: 0 5px;
+    height: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal; 
+
+    .list{
+      background: #e2e4e6;
+      border-radius: 6px;
+
+      .list-title{
+        padding: 8px;
+        font-weight: bold;
+        color: #424242;
+        form > input[type="text"]{
+          border: none;
+          outline: none;
+          padding: 5px 1px;
+          background-color: transparent;
+          display: block;
+          width: 100%;
+          &:focus{ background-color: #fff; }
+        }
+      }
+      .list-body{
+        padding: 0 8px;
+        .card{
+          background-color: #fff;
+          border-radius: 5px;
+          padding: 5px;
+          height: 60px;
+          margin-bottom: 8px;
+        }
+      }
+      .list-footer{
+        .add-card-form{
+          display: none;
+          padding: 5px;
+          &.show{ display: block; }
+          textarea{ width: 100%; outline: none; }
+        }
+        a.add-card{
+          padding: 8px;
+          display: block;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          color: #8E8C8C;
+          &:hover{ background-color: #ccc; }
+        }
+      }
+    }
+  }
+}

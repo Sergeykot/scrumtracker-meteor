@@ -1,0 +1,22 @@
+<template name="SingleList">
+  <div class="list-wrapper">
+    <div class="list">
+      <div class="list-title">
+        <form name="title-form">
+          <input type="text" value="{{title}}" name="new-title" />
+        </form>
+      </div>
+      <div class="list-body">
+        {{> Cards}}
+      </div>
+      <div class="list-footer">
+        <form class="add-card-form {{#if is_new_card_form_shown _id }} show {{/if}}">
+          <textarea></textarea> 
+          <button class="btn btn-success btn-sm">Save</button>
+          <a class="close-add-card-form" href="#"><span class="glyphicon glyphicon-remove"></span></a>
+        </form>
+        <a href="#" class="add-card {{#if is_new_card_form_shown _id }} hide {{/if}}">Add a Card</a>
+      </div>
+    </div>
+  </div>
+</template>

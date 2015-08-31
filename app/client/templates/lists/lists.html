@@ -1,0 +1,11 @@
+<template name="Lists">
+  {{#each lists}}
+    {{> SingleList }}
+  {{else}}
+    <div id="no-lists">
+      <h3>Create your first list</h3>
+      <button class="create-list">Create</button>
+    </div>
+  {{/each}}
+
+</template>
