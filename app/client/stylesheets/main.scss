@@ -9,6 +9,7 @@
   position: fixed;
   right: 0;
   left: 0;
+  top: 0;
 }
 
 #work-panel{
@@ -63,6 +64,8 @@
           padding: 5px;
           height: 60px;
           margin-bottom: 8px;
+          cursor: pointer;
+          &:hover{ background-color: #F1F1F1; }
         }
       }
       .list-footer{

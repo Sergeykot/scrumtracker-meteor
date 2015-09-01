@@ -4,9 +4,13 @@ Meteor.publish('lists', function(){
 
 
 Meteor.publish('list', function(id){
-  return Lists.find({_id: id}, {order: {createdAt: -1}});
+  return Lists.find({_id: id}, {});
 });
 
 Meteor.publish('cards', function(){
   return Cards.find({}, {order: {createdAt: -1}});
+});
+
+Meteor.publish('card', function(id){
+  return Cards.find({_id: id}, {});
 });

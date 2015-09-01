@@ -5,9 +5,9 @@ Router.route('/', {
   where: 'client'
 });
 
-Router.route('/surveys/:_id', {
-  name: 'edit_survey',
-  controller: 'SurveysController',
+Router.route('/c/:_id', {
+  name: 'edit_card',
+  controller: 'CardsController',
   where: 'client',
   action: 'edit'
 });
