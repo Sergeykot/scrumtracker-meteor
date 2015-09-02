@@ -2,12 +2,12 @@
 Template.SingleList.events({
   'click .list-wrapper .list .add-card' : function(e, tmpl){
     e.preventDefault();
-    Session.set("new-card-for-list-" + tmpl.data._id, true);
+    Session.set("new-card-for-list", tmpl.data._id);
   },
 
   'click .list-wrapper .list .close-add-card-form' : function(e, tmpl){
     e.preventDefault();
-    Session.set("new-card-for-list-" + tmpl.data._id, false);
+    Session.set("new-card-for-list", undefined);
   },
 
   'submit .add-card-form' : function(e, tmpl){
@@ -38,7 +38,7 @@ Template.SingleList.events({
 
 Template.SingleList.helpers({
   'is_new_card_form_shown' : function(id){
-    return Session.get("new-card-for-list-" + id);
+    return Session.get("new-card-for-list") == id;
   }
 });
 
