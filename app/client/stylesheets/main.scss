@@ -1,6 +1,5 @@
-/*****************************************************************************/
-/* main: Style */
-/*****************************************************************************/
+.modal-backdrop{ height: 100%; }
+
 .navbar{
   border-radius: 0;
   margin-bottom: 0;
@@ -62,7 +61,7 @@
           background-color: #fff;
           border-radius: 5px;
           padding: 5px;
-          height: 60px;
+          min-height: 60px;
           margin-bottom: 8px;
           cursor: pointer;
           &:hover{ background-color: #F1F1F1; }

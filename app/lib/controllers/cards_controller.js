@@ -4,20 +4,16 @@ CardsController = RouteController.extend({
   subscriptions: function() {
     this.subscribe("lists");
     this.subscribe("cards");
-    this.subscribe("card");
+    //this.subscribe("card");
   },
   
   edit: function () {
-    card = Cards.find({_id: this.params._id}).fetch();
-
+    card = Cards.findOne({_id: this.params._id});
     this.render('EditCard', {
-      data: function(){ return card; }
+      data: function(){
+        return { card: card};
+      }
     });
-  },
-
-  onRun: function(){
-    console.log("ffdf");
-    $('.modal').modal('show');
-    this.next();
   }
+
 });
