@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
 .modal-backdrop{ height: 100%; }
 
 .navbar{
@@ -9,7 +14,32 @@
   right: 0;
   left: 0;
   top: 0;
+  z-index: 999;
 }
+
+::-webkit-scrollbar {
+  width: 10px; /* 1px wider than Lion. */
+  /* This is more usable for users trying to click it. */
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 100px;
+position: absolute;
+}
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0,0,0,0.5);
+  -webkit-border-radius: 100px;
+  background-clip: padding-box;
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 10px; /*Prevent it from getting too small */
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.61); /* Some darker color when you click it */
+  -webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.61);  }
 
 #work-panel{
   position: absolute;
@@ -19,13 +49,6 @@
   background-color: #06799f;
   white-space: nowrap;
 
-  &::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
-
-  &::-webkit-scrollbar:horizontal {
-    height: 20px;
-  }
 
   .list-wrapper{
     width: 270px;
@@ -40,6 +63,16 @@
     .list{
       background: #e2e4e6;
       border-radius: 6px;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      max-height: 100%;
+      position: relative;
 
       .list-title{
         padding: 8px;
@@ -57,6 +90,13 @@
       }
       .list-body{
         padding: 0 8px;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        overflow-y: scroll;
+        padding: 0 0px 0 8px;
+
         .card{
           background-color: #fff;
           border-radius: 5px;
