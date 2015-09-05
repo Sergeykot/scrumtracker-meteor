@@ -18,7 +18,7 @@ html, body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px; /* 1px wider than Lion. */
+  width: 11px; /* 1px wider than Lion. */
   /* This is more usable for users trying to click it. */
   background-color: rgba(0,0,0,0);
   -webkit-border-radius: 100px;
@@ -124,5 +124,42 @@ position: absolute;
         }
       }
     }
+  }
+}
+
+
+.login-card{
+  width: 90%;
+  max-width: 520px;
+  padding: 22px 30px 30px;
+  margin: 25px auto;
+  background-color: #FAFAFA;
+  box-shadow: 5px 5px 6px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+
+  h2{
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: #444444;
+    text-align: center;
+  }
+
+  .input-text{ margin: 0 0 14px 0; }
+  input[type="text"],input[type="password"],input[type=email]{
+    box-shadow: 0 0 0;
+    background-color: transparent;
+    border-width: 0;
+    position: relative;
+    padding: 4px 8px;
+    font-size: 22px;
+    border-bottom: 1px solid #DFDFDF;
+    font-family: "Roboto", "HelveticaNeue-Light", "sans-serif";
+    font-weight: 300;
+    width: 100%;
+    line-height: 24px;
   }
 }
