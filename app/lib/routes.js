@@ -1,4 +1,8 @@
 Router.route('/login', function() {
+  if (!!Meteor.userId()) {
+    Router.go("/");
+    this.next();
+  }
   this.render("Authentication");
 });
 
