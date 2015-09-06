@@ -2,7 +2,7 @@ Template.Authentication.events({
   'submit #login-form' : function(e, t){
     e.preventDefault();
     
-    Meteor.loginWithGithub({ requestPermissions: ['email', 'user', 'public_repo'] }, function (err) {
+    Meteor.loginWithGithub({ requestPermissions: ['email', 'user:email', 'user', 'public_repo'] }, function (err) {
       if (err)
         Session.set('errorMessage', err.reason || 'Unknown error');
     });

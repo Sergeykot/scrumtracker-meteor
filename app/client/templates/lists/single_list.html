@@ -2,8 +2,24 @@
   <div class="list-wrapper">
     <div class="list">
       <div class="list-title">
-        <form name="title-form">
+        <strong class="{{#if is_card_edit_title_form_is_shown _id }} hidden {{/if}}">
+          {{ title }}
+        </strong>
+
+        <div class="dropdown  list-actions {{#if is_card_edit_title_form_is_shown _id }} hidden {{/if}}">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li class="text-center">List actions</li>
+            <li class="divider"></li>
+            <li><a class="delete-list" href="#">Delete this list</a></li>
+          </ul>
+        </div>
+
+        <form name="title-form" class="{{#unless is_card_edit_title_form_is_shown _id }} hidden {{/unless}}">
           <input type="text" value="{{title}}" name="new-title" />
+          <button type="submit" class="btn btn-success btn-sm">Save</button>
         </form>
       </div>
       <div class="list-body">
@@ -15,7 +31,7 @@
           <button class="btn btn-success btn-sm">Save</button>
           <a class="close-add-card-form" href="#"><span class="glyphicon glyphicon-remove"></span></a>
         </form>
-        <a href="#" class="add-card {{#if is_new_card_form_shown _id }} hide {{/if}}">Add a Card</a>
+        <a href="#" class="add-card block-link {{#if is_new_card_form_shown _id }} hide {{/if}}">Add a Card</a>
       </div>
     </div>
   </div>

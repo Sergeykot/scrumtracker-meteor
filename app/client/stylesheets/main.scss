@@ -3,6 +3,8 @@ html, body {
   -webkit-overflow-scrolling: touch;
 }
 
+.hidden{ display: none !important; }
+
 .modal-backdrop{ height: 100%; }
 
 .navbar{
@@ -15,6 +17,11 @@ html, body {
   left: 0;
   top: 0;
   z-index: 999;
+
+  .navbar-nav > li > a{
+    &:hover, &:active, &:focus{ color: #DAD9D9; }
+    color: #fff;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -22,7 +29,6 @@ html, body {
   /* This is more usable for users trying to click it. */
   background-color: rgba(0,0,0,0);
   -webkit-border-radius: 100px;
-position: absolute;
 }
 ::-webkit-scrollbar:hover {
   background-color: rgba(0, 0, 0, 0.09);
@@ -41,6 +47,8 @@ position: absolute;
 
 ::-webkit-scrollbar-thumb{ background: rgba(0,0,0,0.61);  }
 
+#content{ padding-top: 50px; }
+
 #work-panel{
   position: absolute;
   bottom: 0;
@@ -48,80 +56,96 @@ position: absolute;
   left: 0;
   background-color: #06799f;
   white-space: nowrap;
+  min-width: 100%;
 
-
-  .list-wrapper{
-    width: 270px;
-    margin: 0 5px;
+  #work-panel-content{
     height: 100%;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: top;
-    white-space: normal; 
+    padding: 35px 0 10px 0;
 
-    .list{
-      background: #e2e4e6;
-      border-radius: 6px;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      max-height: 100%;
-      position: relative;
+    .list-wrapper{
+      width: 270px;
+      margin: 0 5px;
+      height: 100%;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: top;
+      white-space: normal; 
 
-      .list-title{
-        padding: 8px;
-        font-weight: bold;
-        color: #424242;
-        form > input[type="text"]{
-          border: none;
-          outline: none;
-          padding: 5px 1px;
-          background-color: transparent;
-          display: block;
-          width: 100%;
-          &:focus{ background-color: #fff; }
-        }
-      }
-      .list-body{
-        padding: 0 8px;
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 1 auto;
-        -ms-flex: 1 1 auto;
-        flex: 1 1 auto;
-        overflow-y: scroll;
-        padding: 0 0px 0 8px;
+      .list{
+        background: #e2e4e6;
+        border-radius: 6px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        max-height: 100%;
+        position: relative;
 
-        .card{
-          background-color: #fff;
-          border-radius: 5px;
-          padding: 5px;
-          min-height: 60px;
-          margin-bottom: 8px;
-          cursor: pointer;
-          &:hover{ background-color: #F1F1F1; }
+        .list-title{
+          padding: 8px;
+          font-weight: bold;
+          color: #424242;
+          min-height: 46px;
+          form {
+            > input[type="text"]{
+              border: none;
+              outline: none;
+              padding: 5px 1px;
+              display: block;
+              width: 100%;
+              margin-bottom: 5px;
+              &:focus{ background-color: #fff; }
+            }
+          }
+          .list-actions{
+            position: absolute;
+            top: 8px;
+            right: 8px;
+          }
         }
-      }
-      .list-footer{
-        .add-card-form{
-          display: none;
-          padding: 5px;
-          &.show{ display: block; }
-          textarea{ width: 100%; outline: none; }
+        .list-body{
+          padding: 0 8px;
+          -webkit-box-flex: 1;
+          -webkit-flex: 1 1 auto;
+          -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+          overflow-y: scroll;
+          padding: 0 0px 0 8px;
+
+          .card{
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            min-height: 60px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            &:hover{ background-color: #F1F1F1; }
+          }
         }
-        a.add-card{
+        .list-footer{
+          .add-card-form{
+            display: none;
+            padding: 5px;
+            &.show{ display: block; }
+            textarea{ width: 100%; outline: none; }
+          }
+        }
+
+        a.block-link{
           padding: 8px;
           display: block;
           border-bottom-left-radius: 5px;
           border-bottom-right-radius: 5px;
           color: #8E8C8C;
           &:hover{ background-color: #ccc; }
+          &.create-list{ border-radius: 5px; }
         }
+
       }
     }
   }
@@ -146,20 +170,20 @@ position: absolute;
     letter-spacing: -0.5px;
     color: #444444;
     text-align: center;
-  }
+}
 
-  .input-text{ margin: 0 0 14px 0; }
-  input[type="text"],input[type="password"],input[type=email]{
-    box-shadow: 0 0 0;
-    background-color: transparent;
-    border-width: 0;
-    position: relative;
-    padding: 4px 8px;
-    font-size: 22px;
-    border-bottom: 1px solid #DFDFDF;
-    font-family: "Roboto", "HelveticaNeue-Light", "sans-serif";
-    font-weight: 300;
-    width: 100%;
-    line-height: 24px;
-  }
+.input-text{ margin: 0 0 14px 0; }
+input[type="text"],input[type="password"],input[type=email]{
+  box-shadow: 0 0 0;
+  background-color: transparent;
+  border-width: 0;
+  position: relative;
+  padding: 4px 8px;
+  font-size: 22px;
+  border-bottom: 1px solid #DFDFDF;
+  font-family: "Roboto", "HelveticaNeue-Light", "sans-serif";
+  font-weight: 300;
+  width: 100%;
+  line-height: 24px;
+}
 }

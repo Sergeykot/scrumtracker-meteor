@@ -13,6 +13,12 @@ Router.route('/c/:_id', {
   action: 'edit'
 });
 
+Router.route('/account', {
+  name: 'account',
+  controller: 'AccountController',
+  where: 'client'
+});
+
 Router.route('/', {
   name: 'home',
   controller: 'HomeController',
