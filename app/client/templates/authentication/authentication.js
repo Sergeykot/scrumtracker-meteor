@@ -16,7 +16,7 @@ Template.Authentication.onCreated(function () {
 });
 
 Template.Authentication.onRendered(function () {
-  //particlesJS.load('particles-js', '/scripts/particles.json', function(){});
+  particlesJS.load('particles-js', '/scripts/particles.json', function(){});
 });
 
 Template.Authentication.onDestroyed(function () {
