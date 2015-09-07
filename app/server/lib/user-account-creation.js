@@ -12,22 +12,14 @@ Accounts.onCreateUser(function(options, user) {
   }
 
   account_id = Account.insert({
-    createdAt: new Date() 
+    createdAt: new Date()
   });
   
   if (options.profile) {
     user.profile = options.profile;
     user.profile.account_id = account_id;
+    user.profile.role = "account_admin";
   }
-  
-  //Meteor.users.update({_id: user._id }, {
-    //$set: {
-      //"profile.account_id" : account_id
-    //}
-  //});
-
-  console.log(user)
-  console.log("Account_id: ", account_id)
 
   return user;
 });

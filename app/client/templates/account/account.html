@@ -6,9 +6,59 @@
         <h1>Account</h1>
 
         <div id="users">
-          <h3>Users</h3> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{# each users}}
+              <tr class="user">
+                <td>
+                  {{ profile.name }}
+                  {{#if isCurrentUser _id }}<span class="label label-success">You</span>{{/if}}
+                </td>
+                <td>{{ profile.role }}</td>
+              </tr>
+              {{/ each }}
+            </tbody>
+          </table>
+          <button class="btn btn-default invite-users" data-toggle="modal" data-target="#invite-user-modal">Invite users</button>
         </div>
       </div>
     </div>
   </div>
+
+
+
+<div class="modal fade" id="invite-user-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Invite new users</h4>
+      </div>
+      <div class="modal-body">
+        <form name="invite-users-form">
+          <div class="row">
+            <div class="col-md-5">
+              <input type="text" name="name" class="form-control" placeholder="Enter new user name" />
+            </div>
+            <div class="col-md-5">
+              <input type="email" name="email" class="form-control" placeholder="Put email address here" />
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </template>

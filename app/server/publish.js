@@ -15,8 +15,10 @@ Meteor.publish('card', function(id){
 });
 
 Meteor.publish('current_account', function(id){
-  //return Account.find({_id: Meteor.user().profile.account_id });
   account_id = Meteor.users.findOne(this.userId).profile.account_id;
   return Account.find({_id: account_id })
 });
 
+Meteor.publish('account_users', function(current_account_id){
+  return Meteor.users.find({_id: current_account_id })
+});

@@ -4,6 +4,7 @@ AccountController = RouteController.extend({
   
   subscriptions: function() {
     this.subscribe("current_account");
+    this.subscribe("account_users");
   },
   
   waitOn: function () {
