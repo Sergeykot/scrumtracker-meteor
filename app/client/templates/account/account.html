@@ -43,15 +43,21 @@
       </div>
       <div class="modal-body">
         <form name="invite-users-form">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" placeholder="Enter new user name" />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Put email address here" />
+          </div>
           <div class="row">
-            <div class="col-md-5">
-              <input type="text" name="name" class="form-control" placeholder="Enter new user name" />
-            </div>
-            <div class="col-md-5">
-              <input type="email" name="email" class="form-control" placeholder="Put email address here" />
-            </div>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Submit</button>
+            <div class="col-md-6 col-md-offset-3">
+              <button type="submit" class="btn btn-default btn-block" disabled="{{ isSendingInviteEmail }}" >
+                {{#unless isSendingInviteEmail}}
+                  Submit
+                {{ else }}
+                  Sending ...
+                {{/unless}}
+              </button>
             </div>
           </div>
         </form>
