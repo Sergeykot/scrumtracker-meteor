@@ -9,8 +9,8 @@ Meteor.methods({
 
     var emailTemplate = SSR.render('InviteEmail', {
       email: userData.email,
-      name: userData.name !== "" ? userData.name : null,
-      url: "http://localhost:3000"
+      name: userData.name,
+      host: "http://localhost:3000"
     });
     return Email.send({
       to: userData.email,

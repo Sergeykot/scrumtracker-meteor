@@ -4,6 +4,7 @@ CardsController = RouteController.extend({
   subscriptions: function() {
     this.subscribe("lists");
     this.subscribe("cards");
+    this.subscribe("account_users");
     //this.subscribe("card");
   },
   

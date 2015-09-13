@@ -6,11 +6,32 @@ Template.Account.events({
       email : $(e.target).find('input[name=email]').val()
     }
     Session.set('sending-invite-email-in-progress', true);
+    alreadyExists = !!Users.findOne({ 'profile.email' : userData.email });
+
+    if(alreadyExists){
+      sAlert.error('User with this email is already registered.', {timeout: '5000'});
+      return false;
+    }
+
+
     Meteor.call('sendInviteEmail', userData, function(error){
       Session.set('sending-invite-email-in-progress', undefined);
-      if(error)
-        console.log(error)
+      if(error){
+      }
       else
+        Users.insert({
+          createdAt: new Date(),
+          invitation: {
+            token: Random.id,
+            activatedAt: null,
+          },
+          profile: {
+            accountId: Account.current_id(), 
+            email: userData.email,
+            name: userData.name,
+            role: 'account_member'
+          }
+        });
         $('.modal').modal('hide');
     });
   }
@@ -23,6 +44,11 @@ Template.Account.helpers({
 
   'isCurrentUser' : function(id){
     return Meteor.userId() === id;
+  },
+
+  'isNotActivated' : function(id){
+    user = Users.findOne({_id: id});
+    return user.invitation && user.invitation.activatedAt == null;
   },
 
   'isSendingInviteEmail' : function(){

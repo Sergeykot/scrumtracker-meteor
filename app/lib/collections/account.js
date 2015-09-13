@@ -1,7 +1,11 @@
 Account = new Mongo.Collection('account');
 
-Account.current= function(){
-  Account.find({_id: Meteor.user().profile.account_id }).fetch()
+Account.current_id = function(){
+  return Meteor.user().profile.accountId;
+}
+
+Account.current = function(){
+  return Account.find({_id: Meteor.user().profile.account_id }).fetch();
 }
 
 if (Meteor.isServer) {

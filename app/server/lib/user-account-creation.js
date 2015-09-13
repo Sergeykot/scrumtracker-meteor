@@ -17,7 +17,7 @@ Accounts.onCreateUser(function(options, user) {
   
   if (options.profile) {
     user.profile = options.profile;
-    user.profile.account_id = account_id;
+    user.profile.accountId = account_id;
     user.profile.role = "account_admin";
   }
 

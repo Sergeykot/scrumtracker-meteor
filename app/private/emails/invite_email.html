@@ -1,4 +1,8 @@
 <template name="InviteEmail">
-  <h1>Horay! You have been invited to ScrumTracker</h1>
-  Click <a href="">here</a> to register your account and get to work! :)
+  <h1>Hello {{name}},</h1>
+  <p>
+    You have been invited to ScrumTracker
+  </p>
+
+  Click <a href="{{ host }}/login?token={{ invitation.token }}">here</a> to register your account and get to work! :)
 </template>

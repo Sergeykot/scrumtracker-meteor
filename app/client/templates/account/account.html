@@ -11,6 +11,7 @@
               <tr>
                 <th>Name</th>
                 <th>Role</th>
+                <th>Email</th>
                 <th></th>
               </tr>
             </thead>
@@ -22,6 +23,11 @@
                   {{#if isCurrentUser _id }}<span class="label label-success">You</span>{{/if}}
                 </td>
                 <td>{{ profile.role }}</td>
+                <td>
+                  {{ profile.email }}
+                  {{#if isNotActivated _id }}<span class="label label-warning">Not yet activated</span>{{/if}}
+                </td>
+                <td></td>
               </tr>
               {{/ each }}
             </tbody>
