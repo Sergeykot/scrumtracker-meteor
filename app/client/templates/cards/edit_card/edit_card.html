@@ -18,7 +18,25 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9">
+              <div class="members">
+                <span>MEMBERS</span>
+                {{# each cardMembers }}
+                <div class="cardMember">
+                  {{ profile.name }}
+                </div>
+                {{/ each }}
+                <div class="dropdown add-users-to-card">
+                  <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</button>
+                  <ul class="dropdown-menu">
+                    <li class="text-center">Assign users to this card</li>
+                    <li class="divider"></li>
+                    {{# each users }}
+                    <li><a href="#" data-user-id="{{_id}}">{{ profile.name }}</a></li>
+                    {{/ each }}
+                  </ul>
+                </div>
+              </div>
               {{# if description }}
                 {{ description }}
               {{ else }}
@@ -30,7 +48,7 @@
                 </form>
               {{/ if }}
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3">
               <h5>Add</h5>
               <button class="btn btn-default btn-block btn-sm">Members</button>
               <button class="btn btn-default btn-block btn-sm">Checklist</button>
