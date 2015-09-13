@@ -18,7 +18,8 @@ Template.SingleList.events({
       title: input.val(),
       createdAt: new Date(),
       listId: tmpl.data._id,
-      memberIds: []
+      memberIds: [],
+      accountId: Account.current_id()
     });
     input.val("");
     $(e.target).find('.close-add-card-form').trigger('click');

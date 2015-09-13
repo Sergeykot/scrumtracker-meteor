@@ -7,7 +7,8 @@ Meteor.publish('list', function(id){
 });
 
 Meteor.publish('cards', function(){
-  return Cards.find({}, {order: {createdAt: -1}});
+  account_id = Users.findOne(this.userId).profile.accountId;
+  return Cards.find({accountId: account_id}, {order: {createdAt: -1}});
 });
 
 Meteor.publish('card', function(id){
