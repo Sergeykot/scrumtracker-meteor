@@ -1,0 +1,31 @@
+.card-details{
+  .members{
+    margin-bottom: 10px;
+
+    .cardMember{
+      display: inline-block;
+    }
+    .dropdown.add-users-to-card{
+      display: inline-block;
+      ul > li {
+        position: relative;
+        span.check{
+          position: absolute;
+          background-color: #555;
+          width: 7px;
+          height: 7px;
+          left: 7px;
+          top: 14px;
+          border-radius: 500px;
+          display: none;
+        }
+        &.already-selected span.check { display: block; }
+      }
+    }
+  }
+  .avatar.avatar-small{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+}

@@ -17,7 +17,8 @@ Template.SingleList.events({
     Cards.insert({
       title: input.val(),
       createdAt: new Date(),
-      listId: tmpl.data._id
+      listId: tmpl.data._id,
+      memberIds: []
     });
     input.val("");
     $(e.target).find('.close-add-card-form').trigger('click');

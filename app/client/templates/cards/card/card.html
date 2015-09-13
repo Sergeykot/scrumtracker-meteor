@@ -1,5 +1,12 @@
 <template name="Card">
   <div class="card">
     {{title}}
+
+    <div class="card-members">
+      {{# each cardMembers }}
+        {{> avatar user=this shape="rounded" size="small" alt="HHHHH"}}
+      {{/ each }}
+    </div>
+
   </div>
 </template>

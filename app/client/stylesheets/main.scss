@@ -125,6 +125,8 @@ html {
             margin-bottom: 8px;
             cursor: pointer;
             &:hover{ background-color: #F1F1F1; }
+
+            .card-members .avatar{ display: inline-block; }
           }
         }
         .list-footer{

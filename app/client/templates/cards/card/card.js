@@ -5,4 +5,8 @@ Template.Card.events({
 });
 
 Template.Card.helpers({
+  'cardMembers' : function(){
+    memberIds = Cards.findOne({_id: this._id}).memberIds || [];
+    return Users.find({ _id: { $in: memberIds } });
+  }
 }); 

@@ -20,12 +20,8 @@ Template.EditCard.events({
     userId = $(e.target).data('user-id');
 
     card = tmpl.data.card;
-    memberIds = card.memberIds || [];
-    memberIds.push(userId);
-    
-    Cards.update(card._id, {
-      $set: { memberIds: card.memberIds }
-    });
+    updateCondition = (card.memberIds.indexOf(userId) >= 0) ? {$pull: { memberIds: userId }} : {$push: { memberIds: userId }};
+    Cards.update({ _id: card._id }, updateCondition);
   }
 });
 
@@ -39,8 +35,12 @@ Template.EditCard.helpers({
   },
 
   'cardMembers' : function(){
-    card = Cards.findOne({_id: this._id});
-    return Users.find({ _id: { $in: card.memberIds } });
+    memberIds = Cards.findOne({_id: this._id}).memberIds || [];
+    return Users.find({ _id: { $in: memberIds } });
+  },
+
+  'alreadyAssigned' : function(){
+    return card.memberIds.indexOf(this._id) >= 0;
   }
 });
 
