@@ -14,8 +14,8 @@ ServiceConfiguration.configurations.upsert(
   { service: 'github' },
   {
     $set: {
-      clientId: process.env["ACCOUNTS_GITHUB_ID"],
-      secret: process.env["ACCOUNTS_GITHUB_SECRET"],
+      clientId: Meteor.settings.accounts_github_id,
+      secret: Meteor.settings.accounts_github_secret,
       loginStyle: 'popup'
     }
   }

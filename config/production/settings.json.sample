@@ -1,0 +1,7 @@
+{
+  "public": {
+  },
+
+  "accounts_github_id" : "your-github-id-here",
+  "accounts_github_secret" : "your-github-secret-here"
+}

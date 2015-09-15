@@ -2,5 +2,6 @@
   "public": {
   },
 
-  "sample": "value"
+  "accounts_github_id" : "5cb4d47090123b50320e",
+  "accounts_github_secret" : "1cc4ed501da09a37614bbe27530f40e78d6953f2"
 }
