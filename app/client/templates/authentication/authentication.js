@@ -3,8 +3,10 @@ Template.Authentication.events({
     e.preventDefault();
     
     Meteor.loginWithGithub({ requestPermissions: ['email', 'user:email', 'user', 'public_repo'] }, function (err) {
-      if (err)
+      if (err){
+        console.log(err);
         Session.set('errorMessage', err.reason || 'Unknown error');
+      }
     });
   }
 });
